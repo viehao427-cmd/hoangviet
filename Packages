@@ -1,0 +1,16 @@
+Package: com.ldt.ichange
+Version: 2.2.7-26+debug
+Architecture: iphoneos-arm
+Maintainer: Hoang Viet
+Installed-Size: 1948
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0)
+Filename: ./debs/com.ldt.ichange_2.2.7-26+debug_iphoneos-arm.deb
+Size: 1145556
+MD5sum: d9dc4968e3b2e8da489aae93c73194c9
+SHA1: 2cca8aa3c72e58aea0af3d9337a23f5971d2da38
+SHA256: 691a98e770bfeb9f79d936a319e59dd1e5c65cee09a696cef9463bd2bd8f8154
+Section: Applications
+Description: ichange by hoangviet
+Author: Hoang Viet
+Name: ichange
+
