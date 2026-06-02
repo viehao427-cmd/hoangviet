@@ -1,0 +1,34 @@
+name: Update Repo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'debs/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up dpkg-dev
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y dpkg-dev
+
+    - name: Generate Packages files
+      run: |
+        dpkg-scanpackages -m ./debs /dev/null > Packages
+        bzip2 -fk Packages
+        gzip -fk Packages
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git add Packages Packages.gz Packages.bz2
+        git commit -m "Update Packages index" || exit 0
+        git push
